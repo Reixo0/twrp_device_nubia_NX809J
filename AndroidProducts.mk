@@ -9,6 +9,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_NX809J.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_NX809J-user \
-    omni_NX809J-userdebug \
-    omni_NX809J-eng
+    twrp_NX809J-user \
+    twrp_NX809J-userdebug \
+    twrp_NX809J-eng

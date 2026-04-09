@@ -16,7 +16,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/nubia/NX809J/device.mk)
 
 PRODUCT_DEVICE := NX809J
-PRODUCT_NAME := omni_NX809J
+PRODUCT_NAME := twrp_NX809J
 PRODUCT_BRAND := REDMAGIC
 PRODUCT_MODEL := NX809J
 PRODUCT_MANUFACTURER := nubia
