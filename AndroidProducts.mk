@@ -6,7 +6,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_NX809J.mk
+    $(LOCAL_DIR)/twrp_NX809J.mk
 
 COMMON_LUNCH_CHOICES := \
     twrp_NX809J-user \
