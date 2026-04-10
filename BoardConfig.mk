@@ -7,17 +7,30 @@
 
 DEVICE_PATH := device/nubia/NX809J
 
-# For building with minimal manifest
+# Building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+BUILD_BROKEN_NINJA_USES_ENV_VARS += RTIC_MPGEN
+BUILD_BROKEN_PLUGIN_VALIDATION := soong-libaosprecovery_defaults soong-libguitwrp_defaults soong-libminuitwrp_defaults soong-vold_defaults
 
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
+    boot \
+    init_boot \
+    vendor_boot \
+    dtbo \
+    vbmeta \
+    vbmeta_system \
     odm \
-    system_ext \
     product \
     system \
-    vendor
+    system_ext \
+    system_dlkm \
+    vendor \
+    vendor_dlkm
 BOARD_USES_RECOVERY_AS_BOOT := true
 
 # Architecture
@@ -33,7 +46,11 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := canoe
+PRODUCT_PLATFORM := canoe
 TARGET_NO_BOOTLOADER := true
+
+# Platform
+TARGET_BOARD_PLATFORM := canoe     
 
 # Display
 TARGET_SCREEN_DENSITY := 520
@@ -70,9 +87,6 @@ BOARD_SUPER_PARTITION_GROUPS := nubia_dynamic_partitions
 BOARD_NUBIA_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor odm
 BOARD_NUBIA_DYNAMIC_PARTITIONS_SIZE := 19323158528
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
-
-# Platform
-TARGET_BOARD_PLATFORM := canoe
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
